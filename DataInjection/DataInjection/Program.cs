@@ -13,18 +13,8 @@ class Program
             "Pressione qualquer tecla para continuar...");
         Console.ReadKey();
 
-        try
-        {
-            foreach (var car in GetJsonData())
-            {
-                _controller.Insert(car);
-            }
-        }
-        catch (SqlException e)
-        {
-            Console.WriteLine("-- ERRO ao inserir carros no banco SQL...\n" +
-                $"Mensagem: {e.Message}");
-        }
+        try { foreach (var car in GetJsonData()) _controller.Insert(car); }
+        catch (SqlException e) { Console.WriteLine($"-- ERRO ao inserir carros no banco SQL...\nMensagem: {e.Message}"); }
     }
 
 

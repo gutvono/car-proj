@@ -13,23 +13,43 @@ namespace DataInjectionRepository
 {
     public class CarRepository
     {
-        private string Conn {  get; set; }
+        private string Conn { get; set; }
 
-        public CarRepository() 
+        public CarRepository()
         {
             Conn = ConfigurationManager.ConnectionStrings["StringConnection"].ConnectionString;
         }
 
-        public int Insert(Car car)
+        public string Insert(Car car)
         {
-            int Plate = 0;
+            string Plate;
             using (var db = new SqlConnection(Conn))
             {
                 db.Open();
-                Plate = db.ExecuteScalar<int>(Car.INSERT, car);
+                Plate = db.ExecuteScalar<string>(Car.INSERT, car);
                 db.Close();
             }
             return Plate;
+        }
+
+        public void Delete(Car car)
+        {
+            using (var db = new SqlConnection(Conn))
+            {
+                db.Open();
+                db.Execute(Car.DELETE, car.Plate);
+            }
+        }
+
+        public List<Car> GetAll() 
+        {
+            using (var db = new SqlConnection(Conn))
+            {
+                db.Open();
+                var CarsList = new List<Car>();
+                CarsList = db.Query<Car>(Car.GETALL).AsList();
+                return CarsList;
+            }
         }
     }
 }

@@ -14,6 +14,10 @@ namespace DataInjectionService
 
         public CarService() { _repository = new CarRepository(); }
 
-        public int Insert(Car car) => _repository.Insert(car);
+        public string Insert(Car car) => _repository.Insert(car);
+
+        public void Delete(Car car) => _repository.Delete(car);
+
+        public List<Car> GetAll() => _repository.GetAll();
     }
 }

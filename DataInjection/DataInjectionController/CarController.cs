@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CarService = DataInjectionService.CarService;
 
 namespace DataInjectionController
 {
@@ -14,6 +15,10 @@ namespace DataInjectionController
 
         public CarController() { _service = new CarService(); }
 
-        public int Insert(Car car) => _service.Insert(car);
+        public string Insert(Car car) => _service.Insert(car);
+
+        public void Delete(Car car) => _service.Delete(car);
+
+        public List<Car> GetAll() => _service.GetAll();
     }
 }

@@ -10,7 +10,9 @@ namespace Model
     {
         public readonly static string INSERT = 
             "INSERT INTO CarTB (Plate, Name, ModelYear, FabricationYear, Color) VALUES (@Plate, @Name, @ModelYear, @FabricationYear, @Color);" +
-            "SELECT CAST(scope_identity() AS INT);";
+            "SELECT @Plate;";
+        public readonly static string DELETE = "DELETE FROM CarTB WHERE Plate = @Plate;";
+        public readonly static string GETALL = "SELECT (Plate, Name, ModelYear, FabricationYear, Color) FROM CarTB";
 
         public string Plate { get; set; }
         public string Name { get; set; }
@@ -19,5 +21,14 @@ namespace Model
         public string Color { get; set; }
 
         public Car() { }
+
+        public override string ToString()
+        {
+            return "Placa: ".PadRight(16, '.') + Plate + "\n" + 
+                "Nome: ".PadRight(16, '.') + Name + "\n" +
+                "Ano modelo:".PadRight(16, '.') + ModelYear + "\n" +
+                "Ano fabricação: ".PadRight(16, '.') + FabricationYear + "\n" +
+                "Cor: ".PadRight(16, '.') + Color;
+        }
     }
 }
