@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Car>
+    <Plate>PLATE9</Plate>
+    <Name>Name9</Name>
+    <ModelYear>2013</ModelYear>
+    <FabricationYear>2012</FabricationYear>
+    <Color>Vermelho</Color>
+  </Car>
+  <Car>
+    <Plate>PLATE2</Plate>
+    <Name>Name2</Name>
+    <ModelYear>2020</ModelYear>
+    <FabricationYear>2019</FabricationYear>
+    <Color>Preto</Color>
+  </Car>
+</ArrayOfCar>

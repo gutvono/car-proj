@@ -41,14 +41,12 @@ namespace DataInjectionRepository
             }
         }
 
-        public List<Car> GetAll() 
+        public List<Car> GetAll()
         {
             using (var db = new SqlConnection(Conn))
             {
                 db.Open();
-                var CarsList = new List<Car>();
-                CarsList = db.Query<Car>(Car.GETALL).AsList();
-                return CarsList;
+                return db.Query<Car>(Car.GETALL).AsList();
             }
         }
     }

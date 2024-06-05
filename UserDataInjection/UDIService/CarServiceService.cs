@@ -15,5 +15,7 @@ namespace UDIService
         public CarServiceService() { _repository = new CarServiceRepository(); }
 
         public bool Insert(CarService carService) => _repository.Insert(carService);
+
+        public List<Car> GetAllCarsWithService() => _repository.GetAllCarsWithService();
     }
 }

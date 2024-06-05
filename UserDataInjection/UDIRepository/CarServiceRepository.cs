@@ -12,7 +12,7 @@ namespace UDIRepository
 {
     public class CarServiceRepository
     {
-        private string Conn {  get; set; }
+        private string Conn { get; set; }
 
         public CarServiceRepository() { Conn = ConfigurationManager.ConnectionStrings["StringConnection"].ConnectionString; }
 
@@ -22,11 +22,33 @@ namespace UDIRepository
             using (var db = new SqlConnection(Conn))
             {
                 db.Open();
-                db.Execute(CarService.INSERT, carService);
+                db.Execute(CarService.INSERT, new { carService.Car.Plate, carService.Service.Id, carService.Status });
                 db.Close();
                 result = true;
             }
             return result;
+        }
+
+        public List<Car> GetAllCarsWithService()
+        {
+            using (var db = new SqlConnection(Conn))
+            {
+                db.Open();
+                var CarsList = db.Query(CarService.CARSWITHSERVICE);
+                List<Car> NewCarsList = new ();
+                foreach (var item in CarsList)
+                {
+                    NewCarsList.Add(new Car
+                    {
+                        Plate = item.Plate,
+                        Name = item.Name,
+                        ModelYear = item.ModelYear,
+                        FabricationYear = item.FabricationYear,
+                        Color = item.Color
+                    });
+                }
+                return NewCarsList;
+            }
         }
     }
 }

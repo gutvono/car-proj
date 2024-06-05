@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfCar xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Car>
+    <Plate>PLATE11</Plate>
+    <Name>Name11</Name>
+    <ModelYear>2011</ModelYear>
+    <FabricationYear>2010</FabricationYear>
+    <Color>Branco</Color>
+  </Car>
+  <Car>
+    <Plate>PLATE13</Plate>
+    <Name>Name13</Name>
+    <ModelYear>2012</ModelYear>
+    <FabricationYear>2011</FabricationYear>
+    <Color>Prata</Color>
+  </Car>
+  <Car>
+    <Plate>PLATE28</Plate>
+    <Name>Name28</Name>
+    <ModelYear>2011</ModelYear>
+    <FabricationYear>2010</FabricationYear>
+    <Color>Branco</Color>
+  </Car>
+</ArrayOfCar>

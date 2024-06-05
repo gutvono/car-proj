@@ -12,7 +12,7 @@ namespace Model
             "INSERT INTO CarTB (Plate, Name, ModelYear, FabricationYear, Color) VALUES (@Plate, @Name, @ModelYear, @FabricationYear, @Color);" +
             "SELECT @Plate;";
         public readonly static string DELETE = "DELETE FROM CarTB WHERE Plate = @Plate;";
-        public readonly static string GETALL = "SELECT (Plate, Name, ModelYear, FabricationYear, Color) FROM CarTB";
+        public readonly static string GETALL = "SELECT Plate, Name, ModelYear, FabricationYear, Color FROM CarTB";
 
         public string Plate { get; set; }
         public string Name { get; set; }
@@ -28,7 +28,7 @@ namespace Model
                 "Nome: ".PadRight(16, '.') + Name + "\n" +
                 "Ano modelo:".PadRight(16, '.') + ModelYear + "\n" +
                 "Ano fabricação: ".PadRight(16, '.') + FabricationYear + "\n" +
-                "Cor: ".PadRight(16, '.') + Color;
+                "Cor: ".PadRight(16, '.') + Color + "\n";
         }
     }
 }

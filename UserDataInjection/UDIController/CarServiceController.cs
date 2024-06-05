@@ -15,5 +15,7 @@ namespace UDIController
         public CarServiceController() { _service = new(); }
 
         public bool Insert(CarService carService) => _service.Insert(carService);
+
+        public List<Car> GetAllCarsWithService() => _service.GetAllCarsWithService();
     }
 }
